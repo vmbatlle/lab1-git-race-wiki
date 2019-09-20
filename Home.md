@@ -30,10 +30,10 @@ The first step is setting up [git](http://git-scm.com/). This is a _git_ reposit
 
 Install _git_ for Windows, Mac or Linux as [needed](http://git-scm.com/downloads). 
 Next, in your console type:
-```
-$ git config --global user.name "Your real Here"
-$ git config --global user.email "your_email@youremail.com"
-$ git config --global push.default simple
+```shell
+git config --global user.name "Your real Here"
+git config --global user.email "your_email@youremail.com"
+git config --global push.default simple
 ```
 Next steps you must configure your preferred way to connecting _GitHub_: _HTTPS_ ([tutorial](https://help.github.com/articles/caching-your-github-password-in-git/)) or _SSH_ ([tutorial](https://help.github.com/articles/generating-ssh-keys/)).
 Now you can create your own online repository on _GitHub_ ([tutorial](https://help.github.com/articles/create-a-repo/))
@@ -41,42 +41,42 @@ Now you can create your own online repository on _GitHub_ ([tutorial](https://he
 ## Fork this repository
 Forking this repository is very easy. First click on the right-top corner of the page _Fork_. That's it!. Now you have https://github.com/UNIZAR-30246-WebEngineering/lab1-git-race cloned in `https://github.com/your-github-username/lab1-git-race`
 Next you need to keep your fork synced. We assume here that you have set up _git_ in your computer.
-```
-$ git clone https://github.com/your-github-username/lab1-git-race
-$ cd lab1-git-race
-$ git remote add upstream https://github.com/UNIZAR-30246-WebEngineering/lab1-git-race.git
+```shell
+git clone https://github.com/your-github-username/lab1-git-race
+cd lab1-git-race
+git remote add upstream https://github.com/UNIZAR-30246-WebEngineering/lab1-git-race.git
 ```
 ## Keep synced this repository
 Do the following steps to keep your repo synced.
-```
-$ cd lab1-git-race
-$ git fetch upstream
-$ git checkout master
-$ git merge upstream/master
+```shell
+cd lab1-git-race
+git fetch upstream
+git checkout master
+git merge upstream/master
 ```
 ## Setting up Gradle
 [Gradle](http://gradle.org/) is the building tool used in this course. It is like a Swiss Army knife for building software from the command line. _Gradle_ is configured by adding a file named `gradle.build` to the root directory of a project, which is a [Groovy](http://www.groovy-lang.org/) script. Please, refer to the [Gradle user guide](https://docs.gradle.org/current/userguide/installation.html) for its installation. Once it is installed just do a first run for checking the code:
-```
-$ cd lab1-git-race
-$ gradle check
+```shell
+cd lab1-git-race
+gradle check
 ```
 ## Setting up Travis-CI
 [Travis-CI](https://travis-ci.org/) is an open-source hosted, distributed continuous integration service used to build and test projects hosted at _GitHub_. _Travis CI_ is configured by adding a file named `.travis.yml`, which is a [YAML](http://yaml.org/) format text file, to the root directory of the _GitHub_ repository. When you push code to your repository, _Travis CI_ grabs your code and build it, providing a nice report of the outcome (see [here](https://travis-ci.org/UNIZAR-30246-WebEngineering/lab1-git-race)). You only need to setup a free account linked to your GitHub account and configure _Travis-CI_ to monitor your `your-github-username/lab1-git-race` repository
 
 ## Upload your changes
 In order to check that _Travis-CI_ is working well modify locally `README.md` and add to the above table the following [markdown](https://help.github.com/articles/github-flavored-markdown/) code:
-```
+```markdown
 your name | your nia | [![Build Status](https://travis-ci.org/your-github-username/lab1-git-race.svg)](https://travis-ci.org/your-github-username/lab1-git-race)
 ```
 Next add your changes into your local repository:
-```
-$ cd lab1-git-race
-$ git add -A
-$ git commit -m "with a concise description of the commit"
+```shell
+cd lab1-git-race
+git add -A
+git commit -m "with a concise description of the commit"
 ```
 And then push them to your online _lab1-git-race_ repository in __GitHub__:
-```
-$ git push
+```shell
+git push
 ```
 The file `README.md` in your _GitHub_ repository will be updated and _Travis-CI_ will start to build and test your code. Soon your badge will turn green if you refresh your browser. Otherwise, it means that you have done something wrong.
 
